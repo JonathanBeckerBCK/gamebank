@@ -48,7 +48,7 @@ function menu()
 
             cadastrarCliente($clientes, $nome, $cpf, $telefone);
 
-            //print_r($clientes);
+            print_r($clientes);
 
             menu();
 
@@ -66,7 +66,18 @@ function menu()
             break;
 
         case 3:
-            //depositar($contas, $numeroConta, $quantia);
+            
+            $contas = readline("Escolha conta:");
+            $numeroConta = readline("Numero da conta:");
+
+                if($numeroaleatorio == $numeroConta)
+                {
+                    print "Saldo: R$ $quantia";
+                    $quantia = readline("Quantos você deseja depositar?");
+                    print "Saldo: R$ $quantia";
+                }
+
+            depositar($contas, $numeroConta, $quantia);
             break;
         case 4:
             //sacar($contas, $numeroConta, $quantia);
@@ -101,6 +112,8 @@ function cadastrarConta(&$contas, $cpfCliente): string
         "cpfCliente" => $cpfCliente,
         "saldo" => 0
     ];
+
+    $numeroaleatorio == uniqid();
 
     $contas[] = $conta;
 
